@@ -21,11 +21,15 @@ Analysis of our results:
 
 [Optuna_Analysis]((./notebooks/Optimizations/Optuna_Results_Analysis.ipynb))
 
-## Analysis of each single parameter
+Single Examples for each dataset:
 
-To illustrate the effects of overoptimism in our paper we then used the three settings 
+## Analysis 
+To illustrate the effects of overoptimism in our paper we then used our three found settings, that suggest that ROCK is better than it acutally might be and analysed them further by looking at several aspects of overoptimism. 
 
-## Sensitivity towards random seed
+## Choice of Datasets
+### Number of Samples
+### Jitter
+### Random Seed
 
 ## Hyperparameters
 ### ROCK 
