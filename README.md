@@ -12,6 +12,8 @@ The code to each of the three datasets we tried can be found here:
 - [blobs (with different densities)](./notebooks/Optimizations/Overoptimism_Den_Blobs.ipynb)
 - [rings / circles](./notebooks/Optimizations/Overoptimism_Rings.ipynb)
 
+Results for each of our runs can be found in csv files and the corresponding optuna study databases. 
+
 Analysis of our results:
 
 [Optuna_Analysis]((./notebooks/Optimizations/Optuna_Results_Analysis.ipynb))
