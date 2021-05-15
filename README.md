@@ -5,7 +5,7 @@ This is the repo for our paper "Overoptimism in Clustering".
 ## Overoptimism
 
 We used optuna to find setting for popular synthetic datasets where the ROCK algorithm performed relativly best in comparison to DBSCAN, Kmeans, Mean-Shift and Spectral Clustering.
-To simulate a reasearcher picking out the best datasets we used the following optimization strategy:
+To simulate a reasearcher picking out the best datasets we performed the following formal optimization task:
 
 <img src="https://render.githubusercontent.com/render/math?math=\text{argmax}_{D \in \mathcal{D}} \left\{ \frac{1}{10} \sum_{i = 1}^{10} AMI\left(Rock(D^i), y_{D^i}\right) - \right.\\ - \left. \text{max}_{C \in \mathcal{C}} \frac{1}{10} \sum_{i = 1}^{10} AMI\left(C(D^i), y_{D^i}\right) \right\}">
 
