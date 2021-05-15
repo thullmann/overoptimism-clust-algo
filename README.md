@@ -8,11 +8,13 @@ We used optuna to find setting for popular synthetic datasets where the ROCK alg
 To simulate a reasearcher picking out the best datasets we <img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
 The code to each of the three datasets we tried can be found here:
 
-- two moons
-- blobs (with different densities)
-- rings / circles
+- [two moons](./overoptimism/notebooks/Optimizations/Overoptimism_Two_Moons.ipynb)
+- [blobs (with different densities)](./overoptimism/notebooks/Optimizations/Overoptimism_Den_Blobs.ipynb)
+- [rings / circles](./overoptimism/notebooks/Optimizations/Overoptimism_Rings.ipynb)
 
-Our results and analysis can be found here:
+Analysis of our results:
+
+[Optuna_Analysis]((./overoptimism/notebooks/Optimizations/Overoptimism_Two_Moons.ipynb))
 
 ## Analysis of each single parameter
 
