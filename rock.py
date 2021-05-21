@@ -22,7 +22,7 @@ class ROCK:
                 break
             self.X = X_new
         
-        cluster = DBSCAN(eps=eps, min_samples=2)
+        cluster = DBSCAN(eps=eps, min_samples=1)
         cluster.fit(self.X)
         self.labels = cluster.labels_
         return self
