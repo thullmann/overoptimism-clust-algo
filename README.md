@@ -8,30 +8,32 @@ Using the recently published cluster algorithm Rock as an example, we demonstrat
 
 ## Experiments
 
-We used the optuna<sup>[[1]](#optuna)</sup> hyperparameter optimization framework in order to find the parameter configuration (e.g., for Two Moons, the configuration (n, j) of number of samples and jitter value) that yields the largest performance difference between Rock and the best of the competitors (which is not necessarily the parameter configuration that yields the best **absolute** performance of Rock). The competing algorithms we chose to compare Rock to are DBSCAN, Kmeans, Mean-Shift and Spectral Clustering. The implementation of Rock we used can be found [here](./rock.py). For the competing methods the used the implementations from the sklearn.cluster<sup>[[2]](#cluster)</sup> module.
+We used the optuna<sup>[[1]](#optuna)</sup> hyperparameter optimization framework in order to find the parameter configuration for three popular synthetic datasets (Two Moons, Blobs and Rings) that yields the largest performance difference between Rock and the best of the competitors (which is not necessarily the parameter configuration that yields the best **absolute** performance of Rock). The competing algorithms we chose to compare Rock to are DBSCAN, Kmeans, Mean-Shift and Spectral Clustering. The implementation of Rock we used can be found [here](./rock.py). For the competing methods the used the implementations from the sklearn.cluster<sup>[[2]](#cluster)</sup> module.
 
 To simulate a reasearcher picking out the best datasets we performed the following formal optimization task using the TPE Sampler<sup>[[3]](#sampler)</sup> from optuna:
 
 <img src="https://render.githubusercontent.com/render/math?math=\text{argmax}_{D \in \mathcal{D}} \left\{ \frac{1}{10} \sum_{i = 1}^{10}  \Big( AMI\left(Rock(D^i), y_{D^i}\right) - \text{max}_{C \in \mathcal{C}} \sum_{i = 1}^{10} AMI\left(C(D^i), y_{D^i}\right) \Big) \right\}">
 
-For each dataset we created a jupyter notebook 
-- [two moons](./notebooks/Optimizations/Overoptimism_Two_Moons.ipynb)
-- [blobs (with different densities)](./notebooks/Optimizations/Overoptimism_Den_Blobs.ipynb)
-- [rings / circles](./notebooks/Optimizations/Overoptimism_Rings.ipynb)
+For each dataset we created a jupyter notebook which you can find behind the following links:
+- [**Two Moons**](./notebooks/Optimizations/Overoptimism_Two_Moons.ipynb)
+- [**Blobs** (with different densities)](./notebooks/Optimizations/Overoptimism_Den_Blobs.ipynb)
+- [**Rings**](./notebooks/Optimizations/Overoptimism_Rings.ipynb)
 
 Results for each of our runs can be found in the corresponding csv files and optuna study databases. 
-We provide a notebook that loads these results and creates figures used in the paper - [Optuna_Analysis]((./notebooks/Optimizations/Optuna_Results_Analysis.ipynb))
+We provide a notebook that loads these results and creates figures used in the paper [**here**]((./notebooks/Optimizations/Optuna_Results_Analysis.ipynb)).
 
 Single Examples for each dataset:
 
 ## Analysis 
-To illustrate the effects of overoptimism in our paper we then used our three found settings, that suggest that ROCK is better than it acutally might be and analysed them further by looking at several aspects of overoptimism. 
+After determining the optimal values for the data parameters, we analyzed the performance of Rock for non-optimal parameter values. That is, for each dataset and single data parameter in turn, the parameter was varied over a list of values, while the other data parameters were kept fixed at their optimal values. 
 
-## Choice of Datasets
-### Number of Samples
+1. We kept the jitter value and varied the [**number of samples**]() for the Two Moons Dataset. 
+2. We kept the number of samples and varied the [**jitter**]() for the Two Moons Dataset. 
+3. We varied the [**number of features**]() for the blobs dataset 
 
-### Jitter
 ### Random Seed
+
+In the experiments given so far, we always considered the AMI averaged over ten random seeds. In the final step of the analysis for this section, we specifically study the influence of individual random seeds. We take the Two Moons dataset as an example, with a data parameter setting which is not optimal for Rock, but for which DBSCAN performs very well. We generate 100 datasets with these characteristics by setting 100 different random seeds, to check whether there exist particular seeds for which Rock does perform well, leading to over-optimization potential. This experiment can be found in [**this notebook**]().
 
 ## Hyperparameters
 ### ROCK 
