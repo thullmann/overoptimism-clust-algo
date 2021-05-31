@@ -12,7 +12,7 @@ We used the optuna<sup>[[1]](#optuna)</sup> hyperparameter optimization framewor
 
 To simulate a reasearcher picking out the best datasets we performed the following formal optimization task using the TPE Sampler<sup>[[3]](#sampler)</sup> from optuna:
 
-<img src="https://render.githubusercontent.com/render/math?math=\text{argmax}_{D \in \mathcal{D}} \left\{ \frac{1}{10} \sum_{i = 1}^{10}  \Big( AMI\left(Rock(D^i), y_{D^i}\right) - \right.\\ - \left. \text{max}_{C \in \mathcal{C}}  \vphantom{\sum_{i = 1}^{10}} AMI\left(C(D^i), y_{D^i}\right) \Big) \right\}">
+<img src="https://render.githubusercontent.com/render/math?math=\text{argmax}_{D \in \mathcal{D}} \left\{ \frac{1}{10} \sum_{i = 1}^{10}  \Big( AMI\left(Rock(D^i), y_{D^i}\right) - \text{max}_{C \in \mathcal{C}} \sum_{i = 1}^{10} AMI\left(C(D^i), y_{D^i}\right) \Big) \right\}">
 
 For each dataset we created a jupyter notebook 
 - [two moons](./notebooks/Optimizations/Overoptimism_Two_Moons.ipynb)
