@@ -44,5 +44,5 @@ In a next step, using the Two Moons dataset as an example, we compare the AMI pe
 ---
 <a name="optuna">[1]</a> https://optuna.org/  
 <a name="cluster">[2]</a> https://scikit-learn.org/stable/modules/clustering.html  
-<a name="sampler">[3]</a> https://optuna.readthedocs.io/en/stable/reference/generated/optuna.samplers.TPESampler.html
-<a name="sampler">[4]</a> https://scikit-learn.org/stable/datasets/toy\_dataset.html
+<a name="sampler">[3]</a> https://optuna.readthedocs.io/en/stable/reference/generated/optuna.samplers.TPESampler.html  
+<a name="sampler">[4]</a> https://scikit-learn.org/stable/datasets/toy_dataset.html
