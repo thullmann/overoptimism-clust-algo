@@ -8,9 +8,9 @@ Using the recently published cluster algorithm Rock as an example, we demonstrat
 
 ## Reproduce
 
-First of, in order to exactly reproduce our results you should create a virtual Python environment and install our requirements. 
-Starting out, if you do not have python installed you can go to the official Python website and download Python version 3.9.5.
-Next go to your version of our git in your command line and run the following command to create the virtual envrionment and activate it:
+In order to exactly reproduce our results, you should create a virtual Python environment and install our requirements. 
+First of all, if you do not have Python installed you can go to the official Python website and download Python version 3.9.5.
+Next go to your version of our git in your command line and run the following command to create the virtual environment:
 
 ``` 
 python -m venv your_environment_name 
@@ -25,11 +25,11 @@ your_environment_name\Scripts\activate
 source your_environment_name/bin/activate
 ```
 Then install the requirements using our [requirements.txt](./requirements.txt)
-(this ensure you using exactly the same versions of the Python libraries as we did).
+(this ensures that you use exactly the same versions of the Python libraries as we did).
 ```
 pip install -r requirements.txt
 ```
-Lastly you can start the jupyter notebooks by calling
+Now you can start the jupyter notebooks by calling
 ```
 jupyter notebook
 ```
@@ -50,15 +50,15 @@ For each dataset we created a jupyter notebook which you can find via the follow
 - [**Blobs** (with different densities)](./notebooks/Optimizations/Overoptimism_Den_Blobs.ipynb)
 - [**Rings**](./notebooks/Optimizations/Overoptimism_Rings.ipynb)
 
-Results for each of our runs can be found in the corresponding csv files and optuna study databases in the results/optimization folder. 
-We provide a notebook that loads these results and creates figures used in the paper [**here**]((./notebooks/Optimizations/Optuna_Results_Analysis.ipynb)).
+Results for each of our runs can be found in the corresponding csv files and optuna study databases in [**the results/optimization folder**](./results/optimization). 
+We provide a notebook that loads these results and creates figures used in the paper [**here**](./notebooks/Optimizations/Optuna_Results_Analysis.ipynb).
 
 ### Varying the data parameters 
 After determining the optimal values for the data parameters, we analyzed the performance of Rock for non-optimal parameter values. That is, for each dataset and single data parameter in turn, the parameter was varied over a list of values, while the other data parameters were kept fixed at their optimal values. 
 
 1. We kept the optimal jitter value and varied the [**number of samples**](./notebooks/Comparisons/Two_Moons_Analysis-num_samples.ipynb) for the Two Moons Dataset. 
 2. We kept the optimal number of samples and varied the [**jitter**](./notebooks/Comparisons/Two_Moons_Analysis_jitter.ipynb) for the Two Moons Dataset. 
-3. We kept the optimal number of samples and varied the [**number of features**](./notebooks/Comparisons/Den_Blobs_Analysis.ipynb) for the Blobs dataset. 
+3. We kept the optimal number of samples and varied the [**number of dimensions**](./notebooks/Comparisons/Den_Blobs_Analysis.ipynb) for the Blobs dataset. 
 
 Based on the results, the figures for the paper were generated with [**this notebook**](./notebooks/Comparisons/Generate_Comparison_Figures.ipynb). 
 
@@ -68,7 +68,7 @@ In the experiments given so far, we always considered the AMI averaged over ten 
 
 ## Optimizing the algorithm's parameters
 
-We varied ([**Rock's hyperparameter t_max**](./notebooks/Optimizations/ROCK_Hyperparameter_Search.ipynb) (maximum number of iterations). Here we considered the **absolute** performance of Rock, given researchers would also strive to maximize the absolute performance of their novel algorithm. As exemplary datasets, we again consider Two Moons, Blobs and Rings, and additionally four real datasets frequently used for performance evaluation: Digits, Wine, Iris and Breast Cancer as provided by sci-kit<sup>[[4]](#optuna)</sup>. The data parameter settings for the three synthetic datasets (number of samples, amount of jitter etc.) correspond to the optimal settings from the optimizations above. We used a single random seed to generate the illustrative synthetic datasets.
+We varied [**Rock's hyperparameter t_max**](./notebooks/Optimizations/ROCK_Hyperparameter_Search.ipynb) (maximum number of iterations). Here we considered the **absolute** performance of Rock, given researchers would also strive to maximize the absolute performance of their novel algorithm. As exemplary datasets, we again consider Two Moons, Blobs and Rings, and additionally four real datasets frequently used for performance evaluation: Digits, Wine, Iris and Breast Cancer as provided by sci-kit<sup>[[4]](#optuna)</sup>. The data parameter settings for the three synthetic datasets (number of samples, amount of jitter etc.) correspond to the optimal settings from the optimizations above. We used a single random seed to generate the illustrative synthetic datasets.
 
 In a next step, using the Two Moons dataset as an example, we compare Rock with DBSCAN with respect to the AMI performances over ten random seeds, first without, then with hyperparameter optimization (HPO). The HPO for Rock can be found [**here**](./notebooks/Optimizations/Two_Moons_ROCK_Hyperparameter_Search.ipynb) and the HPO for DBSCAN [**here**](./notebooks/Optimizations/Two_Moons_DBSCAN_Hyperparameter_Search.ipynb). We used the TPE for the HPO of DBSCAN (here, the TPE was not intended to model a researcher's behavior, but was used as a classical HPO method). The comparison illustrates the effect of neglecting parameter optimization for competing algorithms. 
 
