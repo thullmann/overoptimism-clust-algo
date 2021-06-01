@@ -27,19 +27,22 @@ Single Examples for each dataset:
 ## Analysis 
 After determining the optimal values for the data parameters, we analyzed the performance of Rock for non-optimal parameter values. That is, for each dataset and single data parameter in turn, the parameter was varied over a list of values, while the other data parameters were kept fixed at their optimal values. 
 
-1. We kept the jitter value and varied the [**number of samples**]() for the Two Moons Dataset. 
-2. We kept the number of samples and varied the [**jitter**]() for the Two Moons Dataset. 
-3. We varied the [**number of features**]() for the blobs dataset 
+1. We kept the jitter value and varied the [**number of samples**](./notebooks/Comparisons/Two_Moons_Analysis-num_samples.ipynb) for the Two Moons Dataset. 
+2. We kept the number of samples and varied the [**jitter**](./notebooks/Comparisons/Two_Moons_Analysis_jitter.ipynb) for the Two Moons Dataset. 
+3. We varied the [**number of features**](./notebooks/Comparisons/Den_Blobs_Analysis.ipynb) for the blobs dataset 
 
 ### Random Seed
 
-In the experiments given so far, we always considered the AMI averaged over ten random seeds. In the final step of the analysis for this section, we specifically study the influence of individual random seeds. We take the Two Moons dataset as an example, with a data parameter setting which is not optimal for Rock, but for which DBSCAN performs very well. We generate 100 datasets with these characteristics by setting 100 different random seeds, to check whether there exist particular seeds for which Rock does perform well, leading to over-optimization potential. This experiment can be found in [**this notebook**]().
+In the experiments given so far, we always considered the AMI averaged over ten random seeds. In the final step of the analysis for this section, we specifically study the influence of individual random seeds. We take the Two Moons dataset as an example, with a data parameter setting which is not optimal for Rock, but for which DBSCAN performs very well. We generate 100 datasets with these characteristics by setting 100 different random seeds, to check whether there exist particular seeds for which Rock does perform well, leading to over-optimization potential. This experiment can be found in [**this notebook**](./notebooks/Comparisons/Analysis_two_moons_100_seed.ipynb).
 
 ## Hyperparameters
-### ROCK 
-### DBSCAN
+
+Lastly we varied ([Rock's hyperparameter t_max](.\notebooks\Optimizations\ROCK_Hyperparameter_Search.ipynb) (maximum number of iterations). Here we considered the **absolute** performance of Rock, given researchers would also strive to maximize the absolute performance of their novel algorithm. As exemplary datasets, we again consider Two Moons, Blobs and Rings, and additionally four real datasets frequently used for performance evaluation: Digits, Wine, Iris and Breast Cancer as provided by sci-kit<sup>[[4]](#optuna)</sup>. The data parameter settings for the three synthetic datasets (number of samples, amount of jitter etc.) correspond to the optimal settings from the Optimizations above. We used a single random seed to generate the illustrative synthetic datasets.
+
+In a next step, using the Two Moons dataset as an example, we compare the AMI performances over ten random seeds with hyperparameter optimization (HPO) for [Rock](.\notebooks\Optimizations\Two_Moons_ROCK_Hyperparameter_Search.ipynb) and [DBSCAN](.\notebooks\Optimizations\Two_Moons_DBSCAN_Hyperparameter_Search.ipynb). We again used the TPE for the HPO of DBSCAN (here, the TPE was not intended to model a researcher's behavior, but was used as a classical HPO method). The comparison illustrates the effect of neglecting parameter optimization for competing algorithms. 
 
 ---
 <a name="optuna">[1]</a> https://optuna.org/  
 <a name="cluster">[2]</a> https://scikit-learn.org/stable/modules/clustering.html  
 <a name="sampler">[3]</a> https://optuna.readthedocs.io/en/stable/reference/generated/optuna.samplers.TPESampler.html
+<a name="sampler">[4]</a> https://scikit-learn.org/stable/datasets/toy\_dataset.html
