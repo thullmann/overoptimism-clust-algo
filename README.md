@@ -50,7 +50,7 @@ For each dataset we created a jupyter notebook which you can find via the follow
 - [**Blobs** (with different densities)](./notebooks/Optimizations/Overoptimism_Den_Blobs.ipynb)
 - [**Rings**](./notebooks/Optimizations/Overoptimism_Rings.ipynb)
 
-Results for each of our runs can be found in the corresponding csv files and optuna study databases in [**the results/optimization folder**](./results/optimization). 
+Results for each of our runs can be found in the corresponding csv files and optuna study databases in the [**results/optimization folder**](./results/optimization). 
 We provide a notebook that loads these results and creates figures used in the paper [**here**](./notebooks/Optimizations/Optuna_Results_Analysis.ipynb).
 
 ### Varying the data parameters 
