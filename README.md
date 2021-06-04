@@ -1,4 +1,4 @@
-# Overoptimism in Clustering
+# Over-optimistic evaluation and reporting of novel cluster algorithms: An illustrative study
 
 When researchers publish new cluster algorithms, they usually demonstrate the strengths of their novel approaches by comparing the algorithms' performance with existing competitors. However, such studies are likely to be optimistically biased towards the new algorithms, as the authors have a vested interest in presenting their method as favorably as possible in order to increase their chances of getting published. 
 
